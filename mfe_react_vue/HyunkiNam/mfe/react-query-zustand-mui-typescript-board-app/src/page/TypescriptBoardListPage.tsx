@@ -20,7 +20,7 @@ const TypescriptBoardListPage = () => {
   }, [setBoards])
 
   if (isLoading) {
-    return <CircularProgress/>
+    return <CircularProgress />
   }
 
   if (isError) {
@@ -35,7 +35,7 @@ const TypescriptBoardListPage = () => {
     <Container maxWidth="lg">
       <h2>안녕 React-Query + Zustand + Typescript Board App이야!</h2>
       <Button component={Link} to="/react-query-zustand-mui-typescript-board-app/register" variant="contained"
-                color="primary" style={{ marginTop: '20px' }}>
+        color="primary" style={{ marginTop: '20px' }}>
         글쓰기
       </Button>
       <TableContainer component={Paper}>
@@ -43,21 +43,21 @@ const TypescriptBoardListPage = () => {
           <TableHead>
             <TableRow>
               <TableCell style={{ width: '50%' }}>제목</TableCell>
-              <TableCell align='right'>작성자</TableCell>
-              <TableCell align='right'>작성일자</TableCell>
+              <TableCell align='center'>작성자</TableCell>
+              <TableCell align='center'>작성일자</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            { boards?.length === 0 ? (
+            {boards?.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={3} align='center'>현재 등록된 게시물이 없습니다!</TableCell>
               </TableRow>
             ) : (
               boards?.map((board) => (
                 <TableRow key={board.boardId} onClick={() => handleRowClick(board.boardId)} style={{ cursor: 'pointer' }}>
-                  <TableCell>{ board.title }</TableCell>
-                  <TableCell>{ board.writer }</TableCell>
-                  <TableCell>{ board.createDate }</TableCell>
+                  <TableCell>{board.title}</TableCell>
+                  <TableCell align='center'>{board.writer}</TableCell>
+                  <TableCell align='center'>{board.createDate}</TableCell>
                 </TableRow>
               ))
             )}
