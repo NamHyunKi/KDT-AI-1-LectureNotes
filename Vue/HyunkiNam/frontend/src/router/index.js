@@ -20,6 +20,7 @@ import afterLoginTestRoutes from './afterLogin'
 import vuefastapikerasRoutes from './vuefastapikeras'
 import paymentRoutes from './payment'
 import chatRoutes from './chate'
+import s3Routes from './s3'
 // @는 현재 src 폴더를 의미함
 
 
@@ -47,6 +48,7 @@ const routes = [
   ...vuefastapikerasRoutes,
   ...paymentRoutes,
   ...chatRoutes,
+  ...s3Routes,
 ]
 
 const router = new VueRouter({

@@ -50,6 +50,7 @@
         <router-link to="/vue-fastapi-keras-page">Vue + FastAPI + Keras</router-link> |
         <router-link to="/payment-page">결제시 메일</router-link> |
         <router-link to="/chat-page">웹소켓 채팅 테스트</router-link> |
+        <router-link to="/s3-page">S3 이미지</router-link> |
 
       </nav>
     </div>
