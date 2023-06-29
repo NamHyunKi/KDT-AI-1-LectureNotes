@@ -1,3 +1,4 @@
+const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const ExternalTemplateRemotePlugin = require('external-remotes-plugin')
@@ -16,7 +17,7 @@ module.exports = (_, argv) => ({
     historyApiFallback: true,
   },
   output: {
-    publicPath: 'auto',
+    publicPath: 'http://localhost:3000/',
   },
   module: {
     rules: [
@@ -56,13 +57,14 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "containerApp",
       remotes: {
+        // vueModuleApp은 Vue Counter App과 Vue Board App이 합쳐져 있음
         vueModuleApp: 'vueModuleApp@http://localhost:3001/remoteEntry.js',
         vueNavigationApp: 'vueNavigationApp@http://localhost:3002/remoteEntry.js',
+        // reactModuleApp은 사실상 React Counter App임
         reactModuleApp: 'reactModuleApp@http://localhost:3003/remoteEntry.js',
         reactBoardApp: 'reactBoardApp@http://localhost:3004/remoteEntry.js',
         reactZustandTodoApp: 'reactZustandTodoApp@http://localhost:3005/remoteEntry.js',
         reactQueryTestApp: 'reactQueryTestApp@http://localhost:3006/remoteEntry.js',
-        reactProductApp: 'reactProductApp@http://localhost:3015/remoteEntry.js',
         vuetifyTailwindBoardApp: 'vuetifyTailwindBoardApp@http://localhost:3007/remoteEntry.js',
       },
       shared: {

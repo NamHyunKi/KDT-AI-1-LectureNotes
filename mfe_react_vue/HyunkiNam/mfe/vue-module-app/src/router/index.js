@@ -8,25 +8,29 @@ import BoardModifyPage from '../domain/board/page/BoardModifyPage.vue'
 const routes = [
   {
     path: '/',
+    redirect: '/vue-module-app'
+  },
+  {
+    path: '/vue-module-app',
     name: 'BoardListPage',
     component: BoardListPage
   },
   {
-      path: '/board-register-page',
-      name: 'BoardRegisterPage',
-      component: BoardRegisterPage,
+    path: '/vue-module-app/board-register-page',
+    name: 'BoardRegisterPage',
+    component: BoardRegisterPage,
   },
   {
-      path: '/board-read-page/:boardId',
-      name: 'BoardReadPage',
-      components: { default: BoardReadPage },
-      props: { default: true },
+    path: '/vue-module-app/board-read-page/:boardId',
+    name: 'BoardReadPage',
+    components: { default: BoardReadPage },
+    props: { default: true },
   },
   {
-      path: '/board-modify-page/:boardId',
-      name: 'BoardModifyPage',
-      components: { default: BoardModifyPage },
-      props: { default: true },
+    path: '/vue-module-app/board-modify-page/:boardId',
+    name: 'BoardModifyPage',
+    components: { default: BoardModifyPage },
+    props: { default: true },
   },
 ]
 
