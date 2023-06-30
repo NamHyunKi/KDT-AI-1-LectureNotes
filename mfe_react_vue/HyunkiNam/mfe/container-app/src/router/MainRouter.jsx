@@ -15,6 +15,9 @@ import VueModuleAppReadRouter from './vueModuleApp/VueModuleAppReadRouter';
 import VueModuleAppModifyRouter from './vueModuleApp/VueModuleAppModifyRouter';
 import VueModuleAppListRouter from './vueModuleApp/VueModuleAppListRouter';
 import VuetifyTypeScriptBoardAppRegisterRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppRegisterRouter';
+import VuetifyTypeScriptBoardAppModifyRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppModifyRouter';
+import VuetifyTypeScriptBoardAppReadRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppReadRouter';
+import VuetifyTypeScriptBoardAppListRouter from './vuetifyTypeScriptBoardApp/VuetifyTypeScriptBoardAppListRouter';
 
 const MainRouter = () => {
     const vueModuleRef = useRef(null)
@@ -86,13 +89,13 @@ const MainRouter = () => {
                             exact path="/"
                             element={<Home />}
                         />
-                        <Route
+                        {/* <Route
                             exact path="/vuetify-typescript-board-app"
                             element={
                                 <VuetifyTypeScriptBoardAppRouter
                                     vuetifyTailwindBoardRef={vuetifyTailwindBoardRef}
                                 />
-                            } />
+                            } /> */}
                         {/* <Route
                             exact path="/vue-module-app"
                             element={
@@ -135,6 +138,27 @@ const MainRouter = () => {
                             exact path="/vuetify-typescript-board-app/register"
                             element={
                                 <VuetifyTypeScriptBoardAppRegisterRouter />
+                            } />
+                    </Routes>
+                    <Routes>
+                        <Route
+                            exact path="/vuetify-typescript-board-app/read/:boardId"
+                            element={
+                                <VuetifyTypeScriptBoardAppReadRouter />
+                            } />
+                    </Routes>
+                    <Routes>
+                        <Route
+                            exact path="/vuetify-typescript-board-app/modify/:boardId"
+                            element={
+                                <VuetifyTypeScriptBoardAppModifyRouter />
+                            } />
+                    </Routes>
+                    <Routes>
+                        <Route
+                            exact path="/vuetify-typescript-board-app"
+                            element={
+                                <VuetifyTypeScriptBoardAppListRouter />
                             } />
                     </Routes>
                 </BrowserRouter>
