@@ -9,6 +9,10 @@ import VueModuleAppRouter from './vueModuleApp/VueModuleAppRouter';
 import Home from './containerApp/Home';
 import ReactCounterAppRouter from './reactModuleApp/ReactCounterAppRouter';
 import ReactBoardRoutes from './reactBoardApp/ReactBoardRoutes';
+import ReactTypescriptMuiBoardRoutes from './muiTypescriptBoardApp/ReactTypescriptMuiBoardRoutes';
+import VueModuleAppRegisterRouter from './vueModuleApp/VueModuleAppRegisterRouter.jsx';
+import VueModuleAppReadRouter from './vueModuleApp/VueModuleAppReadRouter';
+import VueModuleAppModifyRouter from './vueModuleApp/VueModuleAppModifyRouter';
 
 const MainRouter = () => {
     const vueModuleRef = useRef(null)
@@ -70,6 +74,9 @@ const MainRouter = () => {
                             <Button component={Link} to="/react-board-app" variant="contained">
                                 React 게시판
                             </Button>
+                            <Button component={Link} to="/react-query-zustand-mui-typescript-board-app" variant="contained">
+                                Mui Typescript 게시판
+                            </Button>
                         </div>
                     </div>
                     <Routes>
@@ -98,6 +105,24 @@ const MainRouter = () => {
                             } />
                     </Routes>
                     <ReactBoardRoutes />
+                    <ReactTypescriptMuiBoardRoutes />
+                    <Routes>
+                        <Route
+                            exact path="/vue-module-app/board-register-page"
+                            element={
+                                <VueModuleAppRegisterRouter />
+                            } />
+                        <Route
+                            exact path="/vue-module-app/board-read-page/:boardId"
+                            element={
+                                <VueModuleAppReadRouter />
+                            } />
+                        <Route
+                            exact path="/vue-module-app/board-modify-page/:boardId"
+                            element={
+                                <VueModuleAppModifyRouter />
+                            } />
+                    </Routes>
                 </BrowserRouter>
             </Suspense>
         </div>
